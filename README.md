@@ -1,0 +1,1 @@
+uses the irail api to make a site that displays belgian rail stations, liveboards for departures of a chosen number of stations and daily disturbance warnings/alerts. backend by me, frontend by deepseek cause i hate frontend
