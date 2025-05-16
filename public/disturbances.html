@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRail Disturbances</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>IRail Disturbances for {{ .Date }}</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <a href="/" class="back-link">← Back to Home</a>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Time</th>
+                    <th>Link</th>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range .Disturbances }}
+                <tr>
+                    <td>{{ .Title }}</td>
+                    <td>{{ .Description }}</td>
+                    <td>{{ .FormattedTime }}</td>
+                    <td><a href="{{ .Link }}" target="_blank">Details</a></td>
+                    <td>{{ .ID }}</td>
+                </tr>
+                {{ else }}
+                <tr>
+                    <td colspan="5">No disturbances found for today</td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>IRail Information System &copy; 2025</p>
+        </div>
+    </footer>
+</body>
+</html>

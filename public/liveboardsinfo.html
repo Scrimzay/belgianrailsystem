@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liveboard for {{ .Station }}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Liveboard for {{ .Station }}</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <a href="/liveboards" class="back-link">← Back to Search</a>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Destination</th>
+                    <th>Time</th>
+                    <th>Platform</th>
+                    <th>Delay</th>
+                    <th>Cancelled</th>
+                    <th>Left</th>
+                    <th>Vehicle</th>
+                    <th>Departure Connection</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range .Departures }}
+                <tr>
+                    <td>{{ .StationName }}</td>
+                    <td>{{ .FormattedTime }}</td>
+                    <td>{{ .Platform }}</td>
+                    <td>{{ .Delay }}</td>
+                    <td>{{ .Canceled }}</td>
+                    <td>{{ .Left }}</td>
+                    <td>{{ .Vehicle }}</td>
+                    <td>{{ .DepartureConnection }}</td>
+                </tr>
+                {{ else }}
+                <tr><td colspan="8">No departures found</td></tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>IRail Information System &copy; 2025</p>
+        </div>
+    </footer>
+</body>
+</html>

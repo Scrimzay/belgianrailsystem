@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRail Liveboard Search</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>IRail Liveboard Search</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        {{ if .Error }}
+            <p class="error">{{ .Error }}</p>
+        {{ end }}
+        
+        <form action="/liveboards/search" method="POST">
+            <label for="station">Enter Station Name:</label>
+            <input type="text" id="station" name="station" placeholder="e.g., Brussels-South" required>
+            <input type="submit" value="Search">
+        </form>
+        
+        <a href="/" class="back-link">← Back to Home</a>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>IRail Information System &copy; 2025</p>
+        </div>
+    </footer>
+</body>
+</html>

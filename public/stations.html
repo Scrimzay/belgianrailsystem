@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRail Stations</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>IRail Station Information</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <a href="/" class="back-link">← Back to Home</a>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Standard Name</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Station ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range .Stations }}
+                <tr>
+                    <td>{{ .Name }}</td>
+                    <td>{{ .StandardName }}</td>
+                    <td>{{ .LocationX }}</td>
+                    <td>{{ .LocationY }}</td>
+                    <td>{{ .LinkID }}</td>
+                </tr>
+                {{ else }}
+                <tr>
+                    <td colspan="5">No stations found</td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>IRail Information System &copy; 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
